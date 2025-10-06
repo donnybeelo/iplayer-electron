@@ -1,5 +1,4 @@
 const electron = require('electron');
-const path = require('path')
 const { app, BrowserWindow } = electron;
 
 let mainWindow;
@@ -29,6 +28,7 @@ app.on('ready', () => {
       .orbit-header-right { margin-left: 0 !important; }
       .orb-nav-pri-container { justify-content: normal !important; }
       .orb-nav-pri-container > * { app-region: no-drag; }
+      .orb-nav-blocks { app-region: drag; pointer-events: none; }
     `);
   })
 });
