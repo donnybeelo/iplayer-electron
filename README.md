@@ -10,5 +10,5 @@ npm run package
 
 This will generate some form of standalone executable _stuff_ under the `out/` directory.
 
-On Windows, I moved the contents of that directory (that being another directory which then contains the executable jargon, in my experience) into `C:\Program Files` 
+On Windows, I moved the contents of that directory (that being another directory which then contains the executable amongst other files) into `C:\Program Files` 
 and created a shortcut in `C:\ProgramData\Microsoft\Windows\Start Menu\Programs` so that it comes up in Windows Search.
