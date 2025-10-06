@@ -4,6 +4,7 @@ This has only been tested on Windows 11, if you face any issues or visual bugs, 
 ## Build instructions
 Clone the repo, then run:
 ```bash
+npm install
 npm run package
 ```
 
