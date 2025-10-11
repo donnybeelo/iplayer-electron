@@ -4,6 +4,7 @@ const { app, BrowserWindow } = electron;
 let mainWindow;
 
 const fullscreen = process.argv.includes('--fullscreen') || process.argv.includes('-f');
+const debug = process.argv.includes('--debug');
 
 app.on('ready', () => {
   mainWindow = new BrowserWindow({
@@ -14,6 +15,10 @@ app.on('ready', () => {
     titleBarStyle: "hidden",
     ...(process.platform !== 'darwin' ? { titleBarOverlay: { color: 'black', symbolColor: 'white', height: '15px' } } : {})
   });
+
+  if (debug) {
+    mainWindow.webContents.openDevTools();
+  }
 
   mainWindow.setTitle('BBC iPlayer');
   mainWindow.loadURL('http://bbc.co.uk/iplayer');
