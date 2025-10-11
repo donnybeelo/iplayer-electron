@@ -12,7 +12,7 @@ app.on('ready', () => {
     height: 720,
     fullscreen,
     titleBarStyle: "hidden",
-    ...(process.platform !== 'darwin' ? { titleBarOverlay: { color: '#000000', symbolColor: '#ffffff', height: '15px' } } : {})
+    ...(process.platform !== 'darwin' ? { titleBarOverlay: { color: 'black', symbolColor: 'white', height: '15px' } } : {})
   });
 
   mainWindow.setTitle('BBC iPlayer');
@@ -20,15 +20,21 @@ app.on('ready', () => {
   mainWindow.on('closed', () => {
     mainWindow = null;
   });
-  mainWindow.on('page-title-updated', () => {
+  mainWindow.on('ready-to-show', () => {
     mainWindow.webContents.insertCSS(`
       ::-webkit-scrollbar { width: 0px; }
-      #orbit-header { app-region: drag; position: sticky; top: 0; z-index: 2000; }
+      #orbit-header { position: sticky; top: 0; z-index: 2000; background: #000C; }
+      .orb-nav-pri { app-region: drag; backdrop-filter: blur(10px); background:transparent !important; }
       .orbit-header-links { display: none !important; }
       .orbit-header-right { margin-left: 0 !important; }
       .orb-nav-pri-container { justify-content: normal !important; }
       .orb-nav-pri-container > * { app-region: no-drag; }
       .orb-nav-blocks { app-region: drag; pointer-events: none; }
     `);
-  })
+    if (process.platform === 'darwin') {
+      mainWindow.webContents.insertCSS(`
+        .orb-nav-blocks { margin-left: 90px !important; }
+      `);
+    }
+  });
 });
