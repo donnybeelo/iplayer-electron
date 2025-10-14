@@ -12,6 +12,10 @@ app.on('ready', () => {
     width: 1280,
     height: 720,
     fullscreen,
+    webPreferences: {
+      partition: 'persist:iplayer'
+    },
+    autoHideMenuBar: true,
     titleBarStyle: "hidden",
     ...(process.platform !== 'darwin' ? { titleBarOverlay: { color: 'black', symbolColor: 'white', height: '15px' } } : {})
   });
