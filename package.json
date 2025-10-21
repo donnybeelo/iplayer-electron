@@ -9,7 +9,8 @@
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
-    "lint": "echo \"No linting configured\""
+    "lint": "echo \"No linting configured\"",
+    "winstall": "npm run package && gsudo xcopy \"out\\iPlayer-win32-x64\\*\" \"C:\\Program Files (x86)\\BBC iPlayer\\\" /E /I /H /Y && rmdir out /S /Q"
   },
   "keywords": [],
   "author": {

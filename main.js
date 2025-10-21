@@ -25,7 +25,7 @@ app.on('ready', () => {
   }
 
   mainWindow.setTitle('BBC iPlayer');
-  mainWindow.loadURL('http://bbc.co.uk/iplayer');
+  mainWindow.loadURL('https://www.bbc.co.uk/iplayer');
   mainWindow.on('closed', () => {
     mainWindow = null;
   });
