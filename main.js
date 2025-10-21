@@ -17,7 +17,7 @@ app.on('ready', () => {
     },
     autoHideMenuBar: true,
     titleBarStyle: "hidden",
-    ...(process.platform !== 'darwin' ? { titleBarOverlay: { color: 'black', symbolColor: 'white', height: '15px' } } : {})
+    ...(process.platform !== 'darwin' ? { titleBarOverlay: { color: 'black', symbolColor: 'white', height: 64 } } : {})
   });
 
   if (debug) {
